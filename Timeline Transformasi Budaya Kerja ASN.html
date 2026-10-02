@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Timeline Transformasi Budaya Kerja ASN</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#f6f4ee;--card:#fff;--ink:#1c2321;--mut:#667068;--line:#d9d6ca;--pus:#b4352a;--pusb:#fbe9e6;--dae:#0f6b5c;--daeb:#e1f3ef;--med:#7a4fb5;--medb:#efe8f8;--sh:0 2px 10px rgba(0,0,0,.07)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121715;--card:#1b2220;--ink:#eceee9;--mut:#9aa59d;--line:#334039;--pus:#ff8a7a;--pusb:#3a1f1b;--dae:#4fd1b6;--daeb:#12332d;--med:#c3a1f0;--medb:#2b2038;--sh:0 2px 10px rgba(0,0,0,.4)}}
+:root[data-theme="dark"]{--bg:#121715;--card:#1b2220;--ink:#eceee9;--mut:#9aa59d;--line:#334039;--pus:#ff8a7a;--pusb:#3a1f1b;--dae:#4fd1b6;--daeb:#12332d;--med:#c3a1f0;--medb:#2b2038;--sh:0 2px 10px rgba(0,0,0,.4)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:980px;margin:0 auto;padding:28px 16px 60px}
+h1{font:800 clamp(24px,5vw,38px)/1.15 Georgia,serif;margin:0 0 8px}
+.sub{color:var(--mut);max-width:620px;margin:0 0 18px}
+.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:8px 14px;box-shadow:var(--sh)}
+.stat b{display:block;font-size:20px}.stat span{font-size:12px;color:var(--mut)}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:26px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:8px 0;z-index:5}
+.chip{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:99px;padding:6px 14px;font:600 13px inherit;cursor:pointer}
+.chip.on{background:var(--ink);color:var(--bg)}
+.hd{display:grid;grid-template-columns:1fr 1fr;gap:56px;font:700 12px/1 inherit;letter-spacing:.08em;text-transform:uppercase;margin-bottom:14px}
+.hd div:first-child{color:var(--pus);text-align:right}.hd div:last-child{color:var(--dae)}
+.tl{position:relative}
+.tl:before{content:"";position:absolute;left:50%;top:0;bottom:0;width:3px;background:linear-gradient(var(--pus),var(--dae));border-radius:3px;transform:translateX(-50%);opacity:.5}
+.it{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:22px;animation:up .5s both}
+@keyframes up{from{opacity:0;transform:translateY(14px)}}
+.it .dot{position:absolute;left:50%;top:18px;width:18px;height:18px;border-radius:50%;background:var(--c);border:4px solid var(--bg);transform:translateX(-50%);box-shadow:0 0 0 2px var(--c)}
+.it[data-l=pusat]{--c:var(--pus);--cb:var(--pusb)}.it[data-l=daerah]{--c:var(--dae);--cb:var(--daeb)}.it[data-l=medsos]{--c:var(--med);--cb:var(--medb)}
+.it[data-l=pusat] .card{grid-column:1}.it[data-l=daerah] .card{grid-column:2}.it[data-l=medsos] .card{grid-column:1/3;justify-self:center;max-width:430px;width:100%}
+.card{background:var(--card);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:14px 16px;box-shadow:var(--sh);cursor:pointer;transition:transform .15s}
+.card:hover{transform:translateY(-2px)}
+.date{display:inline-block;background:var(--cb);color:var(--c);font:700 12px inherit;padding:3px 10px;border-radius:99px}
+.no{font:700 11px inherit;color:var(--mut);margin-left:6px}
+.card h3{margin:8px 0 4px;font-size:16px;line-height:1.3}.card p{margin:0;color:var(--mut);font-size:13.5px}
+.link{display:inline-block;margin-top:8px;font:600 12px inherit;color:var(--c);background:var(--cb);padding:3px 9px;border-radius:8px}
+.more{display:none;margin-top:10px;border-top:1px dashed var(--line);padding-top:10px}
+.card.open .more{display:block}
+.more ul{margin:0 0 8px;padding-left:18px}.more li{margin:3px 0;font-size:13.5px}
+.note{background:var(--cb);border-left:3px solid var(--c);padding:7px 10px;border-radius:6px;font-size:13px;margin-top:6px}
+.tg{font:600 12px inherit;color:var(--mut);margin-top:8px}
+.end{text-align:center;margin-top:8px}.end span{display:inline-block;background:var(--card);border:2px dashed var(--line);border-radius:14px;padding:10px 16px;color:var(--mut);font-size:13.5px;max-width:480px}
+@media(max-width:700px){.hd{display:none}.tl:before{left:11px}.it{grid-template-columns:1fr;padding-left:34px;gap:0}
+.it .dot{left:11px}.it .card,.it[data-l=medsos] .card{grid-column:1!important;max-width:none}}
+.box{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:0 0 22px;box-shadow:var(--sh)}
+.box h2{font:800 18px Georgia,serif;margin:0 0 10px}.box ul,.box ol{margin:0;padding-left:20px}.box li{margin:6px 0;font-size:14px}
+.tw{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:640px;font-size:12.5px}
+th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top}th{background:var(--bg);font-size:11.5px}
+td:first-child{font-weight:700}.y{color:var(--dae);font-weight:700}.x{color:var(--pus)}
+</style></head><body><div class="wrap">
+<h1>Perjalanan Transformasi Budaya Kerja ASN</h1>
+<p class="sub">Dari SE Menteri Dalam Negeri hingga tindak lanjutnya di Kabupaten Indragiri Hulu, 2026. Ketuk kartu untuk melihat rincian.</p>
+<div class="stats"><div class="stat"><b>6</b><span>titik waktu (2 pusat, 3 daerah, 1 medsos)</span></div><div class="stat"><b>Mar–Sep 2026</b><span>rentang kebijakan</span></div><div class="stat"><b>1 hari/minggu</b><span>WFH tiap Jumat</span></div></div>
+<div class="box"><h2>Ringkasan untuk pimpinan</h2><ul>
+<li><b>Inti kebijakan konsisten:</b> WFH 1 hari per minggu (Jumat) berlaku sejak 1 April 2026 dan tidak berubah di semua SE.</li>
+<li><b>Yang berubah:</b> SE Mendagri 4412 (1 Juni) mencabut 3349, menambah PIC pelaporan, dan memperpanjang periode evaluasi dari 2 ke 3 bulan.</li>
+<li><b>Di daerah:</b> tiga SE Bupati (No. 5, 6, 9). Mekanisme pengawasan bergeser dari rekap absensi + lampiran format menjadi presensi simpegnas, lalu hanya laporan harian + monitoring atasan.</li>
+<li><b>Status:</b> perpanjangan terakhir berakhir akhir September 2026; belum ada dokumen lanjutan di berkas.</li></ul></div>
+<div class="chips" id="chips"></div>
+<div class="hd"><div>Pemerintah Pusat</div><div>Kab. Indragiri Hulu</div></div>
+<div class="tl" id="tl"></div>
+<div class="box" style="margin-top:28px"><h2>Catatan untuk tindak lanjut</h2><p style="margin:0 0 6px;color:var(--mut);font-size:13px">Berdasarkan teks dokumen pada berkas; perlu dikonfirmasi ke bagian terkait.</p><ol>
+<li><b>Status setelah September.</b> Perpanjangan berakhir akhir September; perlu kepastian apakah WFH Jumat berlanjut atau kembali normal, dan SE penggantinya.</li>
+<li><b>Dasar perpanjangan.</b> SE No. 9 hanya merujuk SE Mendagri 4412; SE pusat tentang perpanjangan (yang disinyalir postingan Bakom 4 Agustus) belum ada di berkas dan belum dikutip sebagai dasar.</li>
+<li><b>Evaluasi 3 bulanan.</b> SE No. 6 mengatur evaluasi tiap 3 bulan (jatuh sekitar awal September); dokumen hasil evaluasinya belum ada di berkas.</li>
+<li><b>Penghematan anggaran.</b> Pusat meminta penghitungan penghematan (listrik, BBM, air, telepon, dll). SE daerah memuat langkah hemat, tetapi tidak terlihat format atau instrumen penghitungannya.</li>
+<li><b>Pelaporan berjenjang.</b> Pusat mewajibkan laporan bulanan (Bupati ke Gubernur tgl 2) dan penunjukan PIC; SE daerah mengatur laporan Kepala PD ke Sekda tanpa tenggat, dan penunjukan PIC tidak disebut.</li>
+<li><b>Pembatasan perjalanan dinas.</b> Pengurangan 50%/70% dan rapat hybrid/daring ada di SE pusat, tetapi tidak terlihat di SE daerah.</li>
+</ol></div>
+<div class="end"><span><b>Per 2 Oktober 2026:</b> masa perpanjangan SE Bupati No. 9 berakhir akhir September. Belum ada dokumen lanjutan pada berkas ini.</span></div>
+</div>
+<script>
+var D=[
+{l:"pusat",d:"31 Mar 2026",no:"Berlaku 1 Apr 2026",t:"SE Mendagri 800.1.5/3349/SJ",s:"Tonggak awal: WFH 1 hari per minggu bagi ASN daerah.",
+p:["Menindaklanjuti arahan Presiden dalam Rapat Terbatas 28 Maret 2026 dan rakor menteri terkait program efisiensi nasional","WFH 1 hari kerja per minggu, setiap Jumat","Perjalanan dinas dalam negeri dikurangi 50%, luar negeri 70%","Penggunaan kendaraan dinas dibatasi, Car Free Day didorong","Pemda menghitung penghematan anggaran; hasilnya untuk program prioritas","Evaluasi tiap 2 bulan; lapor Bupati ke Gubernur paling lambat tgl 2, Gubernur ke Mendagri tgl 4"]},
+{l:"daerah",d:"8 Apr 2026",no:"Berlaku 6 Apr 2026",t:"SE Bupati Inhu No. 5 Tahun 2026",s:"Pelaksanaan Transformasi Budaya Kerja ASN di Pemkab Indragiri Hulu.",from:"Menindaklanjuti SE Mendagri 3349",
+p:["WFH setiap Jumat; WFO tetap bagi pejabat pimpinan tinggi pratama, administrator (eselon III), camat, lurah/kades, dan 19 kelompok unit layanan","Kepala Perangkat Daerah menyusun skema jadwal, pengendalian, dan pengawasan","Pengawasan lewat rekap absensi elektronik, laporan kinerja harian, dan monitoring atasan","Dilengkapi lampiran format pengaturan teknis (absen pagi/sore, foto timestamp, dokumen hasil kerja)","Evaluasi tiap 2 bulan"],
+n:"Tanggal berlaku (6 April) mendahului tanggal penetapan (8 April)."},
+{l:"pusat",d:"1 Jun 2026",no:"Berlaku 1 Jun 2026",t:"SE Mendagri 000.9.6.1/4412/SJ",s:"Penyesuaian pelaksanaan; mencabut SE 3349.",
+p:["Dasar: arahan Presiden 28 Maret 2026, rakor evaluasi kebijakan, paket stimulus triwulan II/semester II 2026, dan hasil evaluasi SE 3349","SE 3349 dicabut dan dinyatakan tidak berlaku","Pola WFH 1 hari per Jumat tetap","Baru: tiap pemda menunjuk 1 PIC untuk koordinasi pelaporan (tautan bit.ly/TransformPemda2026)","Evaluasi berkala diubah menjadi tiap 3 bulan"],
+n:"Redaksi kendaraan dinas berubah dari 'maksimal 50%' (SE 3349) menjadi 'minimal 50%' (SE 4412)."},
+{l:"daerah",d:"3 Jun 2026",no:"Berlaku 3 Jun 2026",t:"SE Bupati Inhu No. 6 Tahun 2026",s:"Penyesuaian pelaksanaan, selaras dengan SE Mendagri 4412.",from:"Menindaklanjuti SE Mendagri 4412",
+p:["WFH Jumat dan daftar pengecualian WFO tetap","Pengawasan melalui aplikasi presensi simpegnas, laporan kinerja harian, dan monitoring atasan","Evaluasi berkala tiap 3 bulan (sebelumnya 2 bulan)","Tidak disertai lampiran format seperti SE No. 5"],
+n:"Teks tidak memuat klausul pencabutan SE No. 5 secara eksplisit."},
+{l:"medsos",d:"4 Agu 2026",no:"Instagram @bakom.ri",t:"Postingan Badan Komunikasi Pemerintah RI",s:"Sinyal dari pusat: WFH ASN diperpanjang.",
+p:["Judul reel: 'WFH ASN Diperpanjang, Kabakom Optimis Birokrasi Pemerintah Lebih Modern dan Efisien'","Keterangan dimulai 'Pemerintah memperpanjang pelaksanaan Work ...' (terpotong di tangkapan layar)","Terbit 27 hari sebelum SE Bupati No. 9 (31 Agustus), jadi menjadi sinyal awal perpanjangan di tingkat pusat"],
+n:"Ini komunikasi publik, bukan dasar hukum. Dokumen SE pusat yang mengatur perpanjangan tidak ada di berkas ini.",link:"https://www.instagram.com/reel/DbnKLs8BRhU/?stkn=MW1rb2Z2MmUxemFiNQ=="},
+{l:"daerah",d:"31 Agu 2026",no:"Hingga akhir Sep 2026",t:"SE Bupati Inhu No. 9 Tahun 2026",s:"Perpanjangan pelaksanaan Transformasi Budaya Kerja ASN.",from:"Menindaklanjuti SE Mendagri 4412",
+p:["Kebijakan diperpanjang hingga akhir September 2026","Perubahan pelaksanaan akan diberitahukan lebih lanjut","WFH Jumat dan daftar pengecualian WFO tetap","Pengawasan: laporan kinerja harian dan monitoring atasan"],
+n:"Teks tidak menyebut presensi simpegnas maupun periode evaluasi."}];
+var F={semua:"Semua",pusat:"Pusat",daerah:"Daerah",medsos:"Media sosial"},cur="semua";
+function chips(){var h="";for(var k in F)h+='<button class="chip'+(k==cur?' on':'')+'" data-k="'+k+'">'+F[k]+'</button>';document.getElementById("chips").innerHTML=h}
+function draw(){var h="";D.forEach(function(x,i){if(cur!="semua"&&x.l!=cur)return;
+h+='<div class="it" data-l="'+x.l+'" style="animation-delay:'+i*.06+'s"><div class="dot"></div><div class="card"><span class="date">'+x.d+'</span><span class="no">'+x.no+'</span><h3>'+x.t+'</h3><p>'+x.s+'</p>'+(x.from?'<span class="link">↳ '+x.from+'</span>':'')+
+'<div class="more"><ul>'+x.p.map(function(p){return"<li>"+p+"</li>"}).join("")+"</ul>"+(x.n?'<div class="note">Catatan: '+x.n+"</div>":"")+(x.link?'<a class="link" href="'+x.link+'" target="_blank" rel="noopener">Buka postingan ↗</a>':"")+'</div><div class="tg">Ketuk untuk rincian</div></div></div>'});
+document.getElementById("tl").innerHTML=h}
+document.addEventListener("click",function(e){var c=e.target.closest(".chip");if(c){cur=c.dataset.k;chips();draw();return}
+var k=e.target.closest(".card");if(k&&!e.target.closest("a")){k.classList.toggle("open");k.querySelector(".tg").textContent=k.classList.contains("open")?"Ketuk untuk menutup":"Ketuk untuk rincian"}});
+chips();draw();
+</script></body></html>
